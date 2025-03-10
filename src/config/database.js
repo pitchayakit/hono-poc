@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 
 // Get database configuration from environment variables
 const dbHost = process.env.DB_HOST || 'localhost';
-const dbPort = process.env.DB_PORT || '5432';
+const dbPort = process.env.DB_PORT || '5434';
 const dbName = process.env.DB_NAME || 'honodb';
 const dbUser = process.env.DB_USER || 'postgres';
 const dbPassword = process.env.DB_PASSWORD || 'postgres';

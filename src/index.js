@@ -4,14 +4,6 @@ import { cors } from 'hono/cors'
 import userRoutes from './routes/users.js'
 import { errorHandler } from './middleware/errorHandler.js'
 import { requestLogger } from './middleware/requestLogger.js'
-import { testConnection } from './config/database.js'
-import { syncDatabase } from './models/index.js'
-
-// Initialize database
-async function initDatabase() {
-  await testConnection();
-  await syncDatabase();
-}
 
 // Create Hono app instance
 const app = new Hono()
@@ -43,15 +35,9 @@ app.notFound((c) => {
 // Start server
 const port = process.env.PORT || 3000
 
-// Initialize database and start server
-initDatabase().then(() => {
-  console.log(`Server is running on port ${port}`)
-  
-  serve({
-    fetch: app.fetch,
-    port: parseInt(port)
-  })
-}).catch(error => {
-  console.error('Failed to initialize application:', error)
-  process.exit(1)
+// Start server directly - database initialization is handled via migrations
+console.log(`Server is running on port ${port}`)
+serve({
+  fetch: app.fetch,
+  port: parseInt(port)
 }) 
