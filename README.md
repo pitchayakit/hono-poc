@@ -79,46 +79,6 @@ The server will be available at http://localhost:3000
 
 The application uses PostgreSQL with Sequelize ORM. When running with Docker Compose, the database is automatically set up and seeded with initial data.
 
-### Database Schema
-
-**Users Table:**
-- `id`: Integer (Primary Key, Auto-increment)
-- `name`: String (Required)
-- `email`: String (Required, Unique)
-- `createdAt`: DateTime
-- `updatedAt`: DateTime
-
-## API Endpoints
-
-### Users
-
-- `GET /api/users`: Returns a list of users
-- `GET /api/users/:id`: Returns a specific user by ID
-- `POST /api/users`: Creates a new user
-- `PUT /api/users/:id`: Updates a user
-- `DELETE /api/users/:id`: Deletes a user
-
-### Example API Requests
-
-**Creating a User:**
-```bash
-curl -X POST http://localhost:3000/api/users \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Alice Johnson", "email": "alice@example.com"}'
-```
-
-**Updating a User:**
-```bash
-curl -X PUT http://localhost:3000/api/users/1 \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Alice Smith", "email": "alice.smith@example.com"}'
-```
-
-**Deleting a User:**
-```bash
-curl -X DELETE http://localhost:3000/api/users/1
-```
-
 ## Project Structure
 
 ```
