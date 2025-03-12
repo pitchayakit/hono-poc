@@ -79,8 +79,7 @@ export const userAdapter = {
    */
   async getAllUsers() {
     const apiClient = createApiClient();
-    const endpoint = userApiConfig.endpoints.getAllUsers;
-    const response = await apiClient.get(endpoint);
+    const response = await apiClient.get('users');
     return response.data;
   },
 
@@ -94,8 +93,7 @@ export const userAdapter = {
       throw new Error('User ID is required');
     }
     const apiClient = createApiClient();
-    const endpoint = userApiConfig.endpoints.getUserById(userId);
-    const response = await apiClient.get(endpoint);
+    const response = await apiClient.get(`users/${userId}`);
     return response.data;
   }
 }; 

@@ -19,8 +19,7 @@ app.get('/', (c) => {
     message: 'Welcome to Hono API',
     version: '1.0.0',
     endpoints: {
-      posts: '/api/posts',
-      users: '/api/users'
+      posts: '/api/posts'
     }
   })
 })
