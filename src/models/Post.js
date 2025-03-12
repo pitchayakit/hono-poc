@@ -27,6 +27,15 @@ const Post = sequelize.define('Post', {
       }
     }
   },
+  userId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: {
+        msg: 'User ID is required'
+      }
+    }
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
