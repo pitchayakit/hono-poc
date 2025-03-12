@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { serve } from '@hono/node-server'
 import { cors } from 'hono/cors'
-import userRoutes from './routes/users.js'
+import postRoutes from './routes/posts.js'
 import { errorHandler } from './middleware/errorHandler.js'
 import { requestLogger } from './middleware/requestLogger.js'
 
@@ -19,13 +19,13 @@ app.get('/', (c) => {
     message: 'Welcome to Hono API',
     version: '1.0.0',
     endpoints: {
-      users: '/api/users'
+      posts: '/api/posts'
     }
   })
 })
 
 // Mount routes
-app.route('/api/users', userRoutes)
+app.route('/api/posts', postRoutes)
 
 // Not found handler
 app.notFound((c) => {

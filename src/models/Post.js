@@ -1,33 +1,29 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
 
-// Define User model
-const User = sequelize.define('User', {
+// Define Post model
+const Post = sequelize.define('Post', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
-  name: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: 'Name cannot be empty'
+        msg: 'Title cannot be empty'
       }
     }
   },
-  email: {
-    type: DataTypes.STRING,
+  content: {
+    type: DataTypes.TEXT,
     allowNull: false,
-    unique: true,
     validate: {
-      isEmail: {
-        msg: 'Email must be a valid email address'
-      },
       notEmpty: {
-        msg: 'Email cannot be empty'
+        msg: 'Content cannot be empty'
       }
     }
   },
@@ -40,7 +36,7 @@ const User = sequelize.define('User', {
     defaultValue: DataTypes.NOW
   }
 }, {
-  tableName: 'users'
+  tableName: 'posts'
 });
 
-export default User; 
+export default Post; 

@@ -7,23 +7,22 @@ module.exports = {
     const transaction = await queryInterface.sequelize.transaction();
     
     try {
-      // Create users table
-      console.log('Creating users table...');
-      await queryInterface.createTable('users', {
+      // Create posts table
+      console.log('Creating posts table...');
+      await queryInterface.createTable('posts', {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
         },
-        name: {
+        title: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        email: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          unique: true
+        content: {
+          type: Sequelize.TEXT,
+          allowNull: false
         },
         createdAt: {
           type: Sequelize.DATE,
@@ -47,7 +46,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    console.log('Rolling back users table...');
-    return queryInterface.dropTable('users');
+    console.log('Rolling back posts table...');
+    return queryInterface.dropTable('posts');
   }
-};
+}; 
