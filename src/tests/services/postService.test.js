@@ -1,4 +1,4 @@
-import { postService } from '../services/postService.js';
+import { postService } from '../../services/postService.js';
 
 describe('Post Service', () => {
   test('getAllPosts should return an array of posts', () => {
