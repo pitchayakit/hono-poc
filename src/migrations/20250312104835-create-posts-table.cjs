@@ -24,6 +24,10 @@ module.exports = {
           type: Sequelize.TEXT,
           allowNull: false
         },
+        userId: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
         createdAt: {
           type: Sequelize.DATE,
           defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')

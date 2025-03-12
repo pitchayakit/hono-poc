@@ -17,18 +17,21 @@ module.exports = {
         { 
           title: 'First Post', 
           content: 'This is the content of the first post.',
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         { 
           title: 'Second Post', 
           content: 'This is the content of the second post.',
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         { 
           title: 'Third Post', 
           content: 'This is the content of the third post.',
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         }
