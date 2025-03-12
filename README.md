@@ -32,8 +32,13 @@ The application follows a layered architecture:
 ### Installation
 
 1. Clone the repository
-2. For Docker-based development (recommended), no additional installation is required
-3. For non-Docker workflow only, install dependencies:
+2. Create a `.env` file based on the `env.example` file:
+   ```bash
+   cp env.example .env
+   ```
+   Update the environment variables in the `.env` file as needed
+3. For Docker-based development (recommended), no additional installation is required
+4. For non-Docker workflow only, install dependencies:
 
 ```bash
 npm install
@@ -87,14 +92,20 @@ The application uses PostgreSQL with Sequelize ORM. When running with Docker Com
 │   ├── config/         # Configuration files
 │   ├── controllers/    # Request handlers
 │   ├── middleware/     # Custom middleware
+│   ├── migrations/     # Database migrations
 │   ├── models/         # Sequelize models
 │   ├── routes/         # API route definitions
+│   ├── seeders/        # Database seed data
 │   ├── services/       # Business logic
 │   ├── tests/          # Unit tests
+│   ├── utils/          # Utility functions and helpers
 │   └── index.js        # Main application file
 ├── index.js            # Entry point
 ├── Dockerfile          # Docker configuration
 ├── docker-compose.yml  # Docker Compose configuration
+├── .env                # Environment variables (create from env.example)
+├── env.example         # Example environment configuration
+├── .sequelizerc        # Sequelize configuration
 ├── package.json        # Project configuration
 ├── jest.config.js      # Jest configuration
 └── README.md           # Documentation
