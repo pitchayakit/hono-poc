@@ -9,7 +9,7 @@ A modern web application built with the [Hono](https://hono.dev/) framework, fea
 - PostgreSQL database with Sequelize ORM
 - CORS support
 - Organized src directory structure
-- Docker support for containerized deployment
+- Docker-based development and deployment
 
 ## Architecture
 
@@ -26,14 +26,14 @@ The application follows a layered architecture:
 
 ### Prerequisites
 
-- Node.js (v16 or later recommended)
-- npm
-- Docker and Docker Compose (for containerized deployment)
+- Docker and Docker Compose (for local development and deployment)
+- Node.js (v16 or later recommended) and npm (for non-Docker workflow only)
 
 ### Installation
 
 1. Clone the repository
-2. Install dependencies:
+2. For Docker-based development (recommended), no additional installation is required
+3. For non-Docker workflow only, install dependencies:
 
 ```bash
 npm install
@@ -41,25 +41,9 @@ npm install
 
 ### Running the Application
 
-#### Local Development
+#### Docker-based Development (Recommended)
 
-Start the development server with auto-reload:
-
-```bash
-npm run dev
-```
-
-Or run the standard server:
-
-```bash
-npm start
-```
-
-The server will be available at http://localhost:3000
-
-#### Docker Deployment
-
-To run the application using Docker:
+The application is configured to use Docker for local development:
 
 ```bash
 # Build and start the containers
@@ -70,6 +54,23 @@ docker-compose logs -f
 
 # Stop the containers
 docker-compose down
+```
+
+The server will be available at http://localhost:3000
+
+#### Non-Docker Alternative
+
+If you prefer to run the application without Docker:
+
+```bash
+# Install dependencies first
+npm install
+
+# Start the development server with auto-reload
+npm run dev
+
+# Or run the standard server
+npm start
 ```
 
 The server will be available at http://localhost:3000
