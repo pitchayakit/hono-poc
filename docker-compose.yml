@@ -7,16 +7,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - PORT=3000
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_NAME=honodb
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - APP_STRAPI_API_URL=http://host.docker.internal:1338
-      - APP_STRAPI_API_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzM5Njc2ODE2LCJleHAiOjE3NDIyNjg4MTZ9.9QWLLQKK6FTc_aoasV70hGOkbP5UrwLnkqCK7h_TVQA
+    env_file:
+      - .env
     volumes:
       - ./src:/app/src
       - node_modules:/app/node_modules
@@ -32,9 +24,9 @@ services:
     ports:
       - "5434:5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=honodb
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
