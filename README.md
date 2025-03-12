@@ -4,11 +4,9 @@ A modern web application built with the [Hono](https://hono.dev/) framework, fea
 
 ## Features
 
-- Lightweight and fast web server
 - RESTful API endpoints
 - Layered architecture (Routes, Controllers, Services)
 - PostgreSQL database with Sequelize ORM
-- Custom middleware for error handling and request logging
 - CORS support
 - Organized src directory structure
 - Docker support for containerized deployment
@@ -20,6 +18,7 @@ The application follows a layered architecture:
 - **Routes**: Define API endpoints and connect them to controllers
 - **Controllers**: Handle HTTP requests and responses
 - **Services**: Contain business logic and data operations
+- **Adapters**: Provide interfaces to external systems and frameworks, decoupling core business logic
 - **Models**: Define database schema using Sequelize ORM
 - **Middleware**: Provide cross-cutting concerns like error handling and logging
 
@@ -83,6 +82,7 @@ The application uses PostgreSQL with Sequelize ORM. When running with Docker Com
 
 ```
 ├── src/                # Source code directory
+│   ├── adapters/       # Interface adapters for external systems
 │   ├── config/         # Configuration files
 │   ├── controllers/    # Request handlers
 │   ├── middleware/     # Custom middleware
