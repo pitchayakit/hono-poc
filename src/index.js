@@ -2,7 +2,6 @@ import { Hono } from 'hono'
 import { serve } from '@hono/node-server'
 import { cors } from 'hono/cors'
 import postRoutes from './routes/posts.js'
-import userRoutes from './routes/userRoutes.js'
 import { errorHandler } from './middleware/errorHandler.js'
 import { requestLogger } from './middleware/requestLogger.js'
 
@@ -28,7 +27,6 @@ app.get('/', (c) => {
 
 // Mount routes
 app.route('/api/posts', postRoutes)
-app.route('/api/users', userRoutes)
 
 // Not found handler
 app.notFound((c) => {
