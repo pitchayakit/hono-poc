@@ -1,7 +1,11 @@
 import { Hono } from 'hono'
 import { postController } from '../controllers/postController.js'
+import { authMiddleware } from '../middleware/authMiddleware.js'
 
 const posts = new Hono()
+
+// Apply auth middleware to all post routes
+posts.use('*', authMiddleware)
 
 // Get all posts
 posts.get('/', postController.getAllPosts)
